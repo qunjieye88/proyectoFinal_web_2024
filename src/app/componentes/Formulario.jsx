@@ -2,6 +2,7 @@
 import {useForm} from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
+import { useRouter } from 'next/navigation';
 
 const SignSquema = Yup.object({
     email: Yup.string().email("No es un email válido").required(),
@@ -12,14 +13,29 @@ const SignSquema = Yup.object({
 })
 
 export default function Formulario(){
-
+    
     const{register, handleSubmit, reset, formState:{errors}}= useForm({
         resolver:yupResolver(SignSquema)
     });
 
     function onSubmit(data){
-        console.log(data);
+        registrar(data.email, data.password)
         reset();
+    }
+
+    function registrar(email, password){
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ1YTVlNTFiOWNkZTQ4ZTgwMzJmMzIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzI3OTEzOTcsImV4cCI6MTczNTM4MzM5N30.MS5HcpdbuJ03WDJn1ZGEmDaH9aNguOz8YMlMmFx1JdQ"
+        fetch("https://bildy-rpmaya.koyeb.app/api/user/login",{
+            method: "POST",
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+            body: JSON.stringify({email, password}),
+        }).then(respuesta => respuesta.json())
+        .then(dato => console.log(dato))
+    }
+    const router = useRouter();
+
+    function redirigie(){
+        router.push('/');
     }
 
 
@@ -29,7 +45,7 @@ export default function Formulario(){
             {errors.email && <p>{errors.email.message}</p>}
             <input {...register("password")} placeholder= "Introduce password"></input>
             {errors.password && <p>{errors.password.message}</p>}
-            <button>Registrar</button>
+            <button onClick={redirigie}>asdasd</button>
         </form>
     )
 

@@ -4,7 +4,6 @@ import Formulario from "./componentes/Formulario"
 export default function Home() {
   return (
     <>
-      <Formulario></Formulario>
     </>
   );
 }
