@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 const SignSquema = Yup.object({
     email: Yup.string().email("No es un email válido").required(),
@@ -12,32 +13,44 @@ const SignSquema = Yup.object({
         .required()
 })
 
-export default function Formulario(){
-    
+export default function Formulario({setLogeado}){
+
+    const [exiteCuenta,setExiteCuenta] = useState(true)
+    const router = useRouter();
+
     const{register, handleSubmit, reset, formState:{errors}}= useForm({
         resolver:yupResolver(SignSquema)
     });
 
     function onSubmit(data){
-        registrar(data.email, data.password)
+        login(data.email, data.password)
         reset();
     }
 
-    function registrar(email, password){
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ1YTVlNTFiOWNkZTQ4ZTgwMzJmMzIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzI3OTEzOTcsImV4cCI6MTczNTM4MzM5N30.MS5HcpdbuJ03WDJn1ZGEmDaH9aNguOz8YMlMmFx1JdQ"
+    function login(email, password){
         fetch("https://bildy-rpmaya.koyeb.app/api/user/login",{
             method: "POST",
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({email, password}),
-        }).then(respuesta => respuesta.json())
-        .then(dato => console.log(dato))
-    }
-    const router = useRouter();
+        }).then(respuesta => {
+            if (respuesta.ok) {
+              return respuesta.json();
+            } else {
+              throw new Error;
+            }
+          })
+        .then(dato =>{
+            localStorage.setItem("token",dato["token"])
+            setExiteCuenta(true)
+            if(dato["token"]){
+                router.push("/usuario")
+            }
+        }).catch((error) => {
+            setExiteCuenta(false)
+        }
+    )}
 
-    function redirigie(){
-        router.push('/');
-    }
-
+    const notificacionExisteCuenta = !exiteCuenta && (<p>La cuenta no existe</p>)
 
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -45,8 +58,8 @@ export default function Formulario(){
             {errors.email && <p>{errors.email.message}</p>}
             <input {...register("password")} placeholder= "Introduce password"></input>
             {errors.password && <p>{errors.password.message}</p>}
-            <button onClick={redirigie}>asdasd</button>
+            <button>ACEPTAR</button>
+            {notificacionExisteCuenta}
         </form>
     )
-
 }

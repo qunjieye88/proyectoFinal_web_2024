@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Formulario from "./componentes/Formulario"
+import BotonRedirigir from "./componentes/BotonRedirigir";
 
 export default function Home() {
   return (
