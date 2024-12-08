@@ -1,13 +1,21 @@
-import ContenedorUsuarios from "../componentes/usuarioComponentes/ContenedorUsuarios.jsx"
-import FormularioCrearUsuario from "../componentes/usuarioComponentes/FormularioCrearUsuario.jsx";
+/* eslint-disable react-hooks/rules-of-hooks */
+'use client'
+import Sidebar from "../componentes/userComponents/Sidebar.jsx";
+import UserDataContainer from "../componentes/userComponents/UserDataContainer.jsx";
+import { useState, useEffect } from 'react';
+import "../style/userComponentsStyle/main.css";
+
+
 
 export default function pageUsuario() {
 
+  const [optionData, setOptionData]= useState("cliente")
+  
+
   return (
-    <>
-        <h1>PAGINA USUARIO</h1>
-        <ContenedorUsuarios></ContenedorUsuarios>
-        <FormularioCrearUsuario></FormularioCrearUsuario>
-    </>
+    <div className="main">
+        <Sidebar></Sidebar>
+        <UserDataContainer></UserDataContainer>
+    </div>
   );
 }
