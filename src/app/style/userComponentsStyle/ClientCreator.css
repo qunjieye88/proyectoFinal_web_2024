@@ -11,6 +11,12 @@
     position:absolute;
 }
 
+.titulo{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(51, 49, 58);
+}
+
 .ClientCreator input {
     padding: 10px;
     margin: 8px 0;   /* Margen entre los inputs */

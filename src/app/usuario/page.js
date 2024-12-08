@@ -3,7 +3,7 @@
 import Sidebar from "../componentes/userComponents/Sidebar.jsx";
 import UserDataContainer from "../componentes/userComponents/UserDataContainer.jsx";
 import { useState, useEffect } from 'react';
-import "../style/userComponentsStyle/main.css";
+import "../style/usuario/main.css";
 
 
 

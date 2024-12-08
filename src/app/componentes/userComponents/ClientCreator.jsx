@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
 import { useState, useEffect } from 'react';
-
 import "../../style/userComponentsStyle/ClientCreator.css"
 
 const SignSquema = Yup.object({
@@ -26,8 +25,6 @@ export default function ClientCreator({ setCreateClient ,setShowPopup}) {
     }
 
     function crearCliente(name, address, cif) {
-        console.log(name)
-        console.log(cif)
         const token = localStorage.getItem("token")
         fetch("https://bildy-rpmaya.koyeb.app/api/client", {
             method: "POST",
@@ -52,6 +49,7 @@ export default function ClientCreator({ setCreateClient ,setShowPopup}) {
     return (
         <>
             <form className="ClientCreator" onSubmit={handleSubmit(onSubmit)}>
+                <h1 className="titulo">CREAR CLIENTE</h1>
                 <input {...register("name")} placeholder="Nombre Usuario/Empresa"></input>
                 {errors.name && <p className="error-message">{errors.name.message}</p>}
                 <input {...register("address")} placeholder="Domicilio"></input>

@@ -1,8 +1,9 @@
-:root{
+.clientData{
+    --largeSize:2;
     --largeSize:1;
-    --mediumSize:0.7;
-    --smallSize:0.4;
-    --sizeHeight:300px;
+    --mediumSize:0.8;
+    --smallSize:0.6;
+    --sizeHeight:150px;
     --sizeWidth:400px;
     --sizeName:1.6rem;
     --sizeCif:1.4rem;
@@ -11,14 +12,13 @@
 
 .clientData {
     width: var(--sizeWidth);
-    height: var(--size);
+    height: var(--sizeHeight);
     margin: 20px auto;
     padding: 20px; 
     border: 1px solid #ddd;
     border-radius: 8px; 
     box-shadow: 0 4px 6px rgba(186, 0, 0, 0.1);
     background-color: #f9f9f9; 
-    overflow-y: auto; 
 }
 
 .clientDataName {
@@ -37,6 +37,27 @@
     color: #6C757D; 
     font-size: var(--sizeStreet); 
 }
+
+@media (max-width: 768px) {
+    .clientData {
+        padding: 15px; 
+        width: calc(var(--sizeWidth)*var(--mediumSize)); 
+        margin: 10px auto; 
+    }
+    .clientDataName {
+        font-size:  calc(var(--sizeName)*var(--mediumSize)); 
+    }
+    
+    .clientDataCif {
+        color: #000000; 
+        font-size:calc(var(--sizeCif)*var(--mediumSize)); 
+    }
+    
+    .clientDataStreet {
+        font-size: calc(var(--sizeStreet)*var(--mediumSize)); 
+    }
+}
+
 
 @media (max-width: 768px) {
     .clientData {

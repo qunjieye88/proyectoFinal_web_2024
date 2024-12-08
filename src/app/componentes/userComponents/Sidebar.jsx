@@ -2,7 +2,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 
-import "../../style/userComponentsStyle/Sidebar.css"
+import "../../style/usuario/Sidebar.css"
 
 export default function BarraLateralOpciones() {
     const [isMinimized, setIsMinimized] = useState(false);

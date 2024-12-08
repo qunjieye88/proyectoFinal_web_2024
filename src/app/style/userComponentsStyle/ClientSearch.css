@@ -1,0 +1,58 @@
+.clientSearchDataContainer{
+    position: absolute;
+    height: 250px;
+    width:600px;
+    background-color: rgb(51, 57, 86);
+    display: flex;
+    border-radius: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(51, 49, 58);
+}
+
+
+.clientSearchDataContainer button{
+    
+    padding: 10px 20px;
+    margin: 10px;  
+    border: none;
+    background-color: #ffffff;
+    color: rgb(6, 6, 6);
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;  
+}
+
+@media (max-width: 768px) {
+    .clientSearchDataContainer{
+        position: absolute;
+        height: 175px;
+        width:420px;
+        background-color: rgb(51, 57, 86);
+        display: flex;
+        align-items: center;
+        border-radius: 20px; 
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .clientSearchDataContainer{
+        position: absolute;
+        height: 160px;
+        width:300px;
+        background-color: rgb(51, 57, 86);
+        display: flex;
+        align-items: center;
+        border-radius: 10px; 
+    }
+    
+}
