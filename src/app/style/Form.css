@@ -1,0 +1,97 @@
+/* Contenedor principal */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.formContainer {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    align-items: center;
+    align-items: center;
+
+}
+
+/* Título del formulario */
+.formContainer h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de los inputs */
+.inputContainer {
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #e63946;
+    font-size: 12px;
+    text-align: left;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Contenedor de los botones */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botones */
+.formButton {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 180px;
+}
+
+.formButton:hover {
+    background-color: #0056b3;
+}
+
+/* Notificación */
+.notification {
+    color: #e63946;
+    font-size: 14px;
+    margin-top: 10px;
+}
