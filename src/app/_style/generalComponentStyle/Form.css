@@ -1,3 +1,4 @@
+
 .formData {
     width: auto;               
     height: auto;      
@@ -8,8 +9,6 @@
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position:absolute;
-    z-index: 2;
 }
 
 .row{
@@ -47,7 +46,7 @@
 
 .ButtonContainer{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .formData button {
@@ -64,7 +63,7 @@
 }
 
 .formData button:hover {
-    background-color: #1e2a35;
+    background-color: #4d7192;
 }
 
 .error-message {

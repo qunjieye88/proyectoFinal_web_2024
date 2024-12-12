@@ -1,7 +1,7 @@
-
 'use client'
-import Sidebar from "../component/userComponent/Sidebar.jsx";
-import "../style/userComponentsStyle/User.css";
+import Sidebar from "../component/generalComponent/Sidebar";
+
+import "../_style/userComponentStyle/pageUser.css"
 
 export default function layoutUsuario({children}) {
 

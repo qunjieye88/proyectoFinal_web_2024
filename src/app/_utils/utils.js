@@ -12,7 +12,7 @@ export function GetData(path,token) {
     return dato;
 }
 
-export function deleteConcreteClient(path,token) {
+export function deleteData(path,token) {
     const dato = fetch(path, {
         method: "DELETE",
         headers: {
@@ -27,6 +27,7 @@ export function deleteConcreteClient(path,token) {
             return false
         }
     })
+    
     return dato;
 }
 

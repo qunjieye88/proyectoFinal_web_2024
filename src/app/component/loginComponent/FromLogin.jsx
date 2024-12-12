@@ -1,11 +1,12 @@
 'use client'
+
+import * as Yup from "yup";
+import RedirectButton from "../generalComponent/ButtonRedirect"
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from "yup";
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import "../../style/Form.css"
-import RedirectButton from "../RedirectButton"
+import "../../_style/generalComponentStyle/FormLogin.css"
 
 const SignSquema = Yup.object({
     email: Yup.string().email("No es un email válido").required(),
@@ -22,7 +23,6 @@ export default function Formulario() {
     });
     const [existeCuenta, setExisteCuenta] = useState(true);
     const router = useRouter();
-
 
     function onSubmit(data) {
         login(data.email, data.password);

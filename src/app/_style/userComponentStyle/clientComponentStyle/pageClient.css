@@ -1,0 +1,73 @@
+
+.client{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+
+
+header{
+    width: 95%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+header .container-info {
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+}
+
+header .container-interactive{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: s;
+    gap:10px;
+}
+
+header .container-interactive .container-button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left:10px ;
+}
+
+.actionButton{
+    z-index: 3;
+    background-color: rgb(23, 159, 159);
+}
+
+main{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-top: 1px solid rgb(158, 158, 158); 
+}
+
+.overlappingContent{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    z-index: 2; 
+    justify-content: center;
+    align-items: center;
+}

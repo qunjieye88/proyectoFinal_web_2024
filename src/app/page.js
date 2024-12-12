@@ -1,7 +1,8 @@
 'use client';
 import { useRouter } from "next/navigation";
-import FormLogin from "./component/loginComponent/FormLogin.jsx";
-import { useState, useEffect } from 'react';
+import FormLogin from "./component/loginComponent/FromLogin.jsx";
+import { useEffect } from "react";
+
 
 export default function Home() {
   
@@ -10,6 +11,7 @@ export default function Home() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
+      console.log(token)
       router.push("/user");
     }
   }, []);

@@ -2,16 +2,16 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
-import { useState, useEffect } from 'react';
-import "../../../style/userComponentsStyle/Form.css"
-import { GetData, createData } from "@/app/utils/utils";
+import { useState } from 'react';
+import { GetData, createData } from "@/app/_utils/utils";
+import "@/app/_style/generalComponentStyle/Form.css"
 
 const SignSquema = Yup.object({
     name: Yup.string().required(),
     address: Yup.string().required()
 
 })
-export default function ClientCreator({ setCreateData, setShowPopup }) {
+export default function ClientCreator({ setCreateDataState, setShowPopupState }) {
 
     const [error, setError] = useState("")
 
@@ -29,8 +29,8 @@ export default function ClientCreator({ setCreateData, setShowPopup }) {
         } else {
             const creado = await crearCliente(data.name, data.address, data.cif)
             if (creado) {
-                setCreateData(false)
-                setShowPopup(true)
+                setCreateDataState(false)
+                setShowPopupState(true)
                 setError("")
                 reset();
             }else{
@@ -53,7 +53,6 @@ export default function ClientCreator({ setCreateData, setShowPopup }) {
 
     const mensaje = error && <h1 className="error-message" >{error}</h1>
     return (
-        <>
             <form className="formData" onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="title">CREAR CLIENTE</h1>
                 <input {...register("name")} placeholder="Nombre Usuario/Empresa"></input>
@@ -63,10 +62,9 @@ export default function ClientCreator({ setCreateData, setShowPopup }) {
                 <input {...register("cif")} placeholder="CIF"></input>
                 {mensaje}
                 <div className="ButtonContainer">
-                    <button type="button" onClick={() => setCreateData(false)}>CANDELAR</button>
+                    <button type="button" onClick={() => setCreateDataState(false)}>CANDELAR</button>
                     <button type="submit">ACEPTAR</button>
                 </div>
             </form>
-        </>
     )
 }
